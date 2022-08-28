@@ -2,15 +2,16 @@ package com.skilldistillery.foodtruck.entities;
 
 public class FoodTruck {
 //singular truck
-	
+	public FoodTruck [] trucks;
 	public String truckName;
 	public String truckFood;
 	public double truckRating;
 	public int id = 0;
 	public static int COUNTER;
+	final public static int MAX_TRUCKS = 5;
 	
 	public FoodTruck() {
-	}
+	};
 	public FoodTruck(String truckName, String truckFood, double truckRating) {
 		this.truckName = truckName;
 		this.truckFood = truckFood;
@@ -23,6 +24,7 @@ public class FoodTruck {
 		return "Name " + getTruckName() + "\nFood " + getTruckFood() + "\nRating " + getTruckRating()
 				+ "\nID " + getId();
 	}
+	
 	public String getTruckName() {
 		return truckName;
 	}
@@ -52,5 +54,17 @@ public class FoodTruck {
 		String truckData = toString();
 		System.out.println(truckData);
 	}
+	
+	 public FoodTruck[] getTrucks() {
+		    FoodTruck[] truckCopy;
+		    truckCopy = new FoodTruck[id];
+		    for(int i=0; i < id; i++) {
+		      truckCopy[i] = trucks[i];
+		    }
+		    
+		    return truckCopy;
+		  }
+	
+	
 }
 
