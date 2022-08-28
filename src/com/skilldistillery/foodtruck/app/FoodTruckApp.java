@@ -23,14 +23,14 @@ public class FoodTruckApp {
 			System.out.println("Please enter the food type on this truck: ");
 			String truckFood = kb.nextLine();
 
-			System.out.println("Please enter a number rating, 1-5, for this food truck: ");
+			System.out.println("Please enter a number rating, based on the scale 1-5, for this food truck: ");
 			double truckRating = kb.nextDouble();
 			kb.nextLine();
 
 			truck = new FoodTruck(truckName, truckFood, truckRating);
 
 			arrFoodTruck[i] = truck;
-//		arrFoodTruck[i].displayFoodTruck();
+
 		}
 
 		while (runProgram) {
@@ -40,52 +40,52 @@ public class FoodTruckApp {
 			switch (userInput) {
 			case 1:
 				for (int i = 0; i < arrFoodTruck.length; i++) {
-					if(arrFoodTruck[i] == null) {
+					if (arrFoodTruck[i] == null) {
 						break;
 					}
 					arrFoodTruck[i].displayFoodTruck();
 				}
 				break;
-				
+
 			case 2:
 				int averageCounter = 0;
 				for (int i = 0; i < arrFoodTruck.length; i++) {
-					if(arrFoodTruck[i] == null) {
+					if (arrFoodTruck[i] == null) {
 						break;
 					}
 					arrFoodTruck[i].getTruckRating();
 					sum = sum + arrFoodTruck[i].getTruckRating();
 					averageCounter = i;
 				}
-				averageTotal = sum / (averageCounter + 1) ;
-				System.out.println("The average rating of all trucks is " + averageTotal);
+				averageTotal = sum / (averageCounter + 1);
+				System.out.println("The average rating of all food trucks is: " + averageTotal);
 				break;
-				
+
 			case 3:
-				int max = (int)arrFoodTruck[0].getTruckRating();
+				int max = (int) arrFoodTruck[0].getTruckRating();
 				int bestRating = 0;
 				for (int i = 0; i < arrFoodTruck.length; i++) {
-					if(arrFoodTruck[i] == null) {
+					if (arrFoodTruck[i] == null) {
 						break;
 					}
-					if(max < arrFoodTruck[i].getTruckRating()) {
-						max = (int)arrFoodTruck[i].getTruckRating();
+					if (max < arrFoodTruck[i].getTruckRating()) {
+						max = (int) arrFoodTruck[i].getTruckRating();
 						bestRating = i;
 					}
-					
+
 				}
-				System.out.println("The best rating of all trucks is: " + arrFoodTruck[bestRating]);
+				System.out.println("The best rated food truck is: " + arrFoodTruck[bestRating]);
 				break;
-				
+
 			case 4:
 				System.out.println("Goodbye");
 				runProgram = false;
 				break;
-				
+
 			default:
 				System.out.println("Invalid Entry, please use numbers to make any menu selection");
 				break;
-				
+
 			}
 		}
 		kb.close();
